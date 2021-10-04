@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-
+from .models import Area
 from area.forms import AreaForm
 
 # Create your views here.
@@ -22,4 +22,6 @@ def area_agregar(request):
 
 
 def listar_area(request):
-    return render(request,'area/area_list.html')
+    areas = Area.objects.all()
+
+    return render(request,'area/area_list.html',{'area':areas})

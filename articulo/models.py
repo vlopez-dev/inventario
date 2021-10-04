@@ -9,7 +9,7 @@ class Articulo(models.Model):
     descripcion_articulo = models.CharField(max_length=200)
     tipo_articulo = models.CharField(max_length=200)
     id_area=models.name = models.ForeignKey('area.area',on_delete=models.CASCADE)
-    imagen_articulo = models.ImageField(upload_to='articulos/images/')
+    imagen_articulo = models.ImageField(upload_to='articulo/images/')
 
 
 
@@ -18,6 +18,9 @@ class Articulo(models.Model):
     def add(self):
             self.save
 
-
     def __str__(self):
-            return self.nombre_articulo
+            return self.nombre_articulo + " " + self.id_articulo
+    
+    
+    
+   

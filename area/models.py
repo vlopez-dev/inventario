@@ -16,9 +16,10 @@ class Area(models.Model):
 
 
 
+
 def add(self):
-        self.save
+            self.save
 
 
 def __str__(self):
-        return self.nombre
+            return self.nombre
