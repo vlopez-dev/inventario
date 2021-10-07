@@ -1,6 +1,6 @@
 from .forms import EmpresaForm
 from django.db import models
-
+from .models import Empresa
 from django.shortcuts import render,redirect
 
 # Create your views here.
@@ -23,7 +23,8 @@ def empresa_agregar(request):
 
 
 def listar_empresa(request):
-    return render(request,'empresa/empresa_list.html')
+    empresas = Empresa.objects.all()
+    return render(request,'empresa/empresa_list.html',{'empresa':empresas})
 
 
 

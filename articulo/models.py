@@ -19,7 +19,8 @@ class Articulo(models.Model):
             self.save
 
     def __str__(self):
-            return self.nombre_articulo + " " + self.id_articulo
+            return self.id_articulo
+#     + " " + self.id_articulo
     
     
     

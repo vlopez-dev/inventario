@@ -2,5 +2,13 @@
 
 
 {% block content %}
-<p> django listar area</p>
+
+{% for a in articulos %}
+    <ul>
+        <li> {{ a.id_articulo }} </li>
+    </ul>
+  
+
+{% endfor %}
+
 {% endblock content %}

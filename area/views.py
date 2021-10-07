@@ -16,7 +16,7 @@ def area_agregar(request):
         form =AreaForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('area/area_list.html')
+        return redirect('/area/listar/')
     
 
 

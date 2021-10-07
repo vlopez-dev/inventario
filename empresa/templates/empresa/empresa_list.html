@@ -2,5 +2,9 @@
 
 
 {% block content %}
-<p> django listar area</p>
+{% for e in empresa %}
+    <ul>
+        <li>{{ e.nombre }}</li>
+    </ul>
+{% endfor %}
 {% endblock content %}

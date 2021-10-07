@@ -9,6 +9,6 @@ class ArticuloForm(forms.ModelForm):
         model=Articulo
         fields = '__all__'
         
-        labels = {
-            'Nombre':'Nombre',
-        }
+        # labels = {
+        #     'Nombre':'Nombre',
+        # }
