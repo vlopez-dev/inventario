@@ -2,13 +2,9 @@
 
 
 {% block content %}
-
-{% for a in articulos %}
+{% for a in articulo %}
     <ul>
-        <li> {{ a.id_articulo }} </li>
+        <li> {{ a.nombre_articulo }} </li>
     </ul>
-  
-
 {% endfor %}
-
 {% endblock content %}

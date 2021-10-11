@@ -9,4 +9,5 @@ class EmpresaForm(forms.ModelForm):
         
         labels = {
             'Nombre':'Nombre',
+            
         }

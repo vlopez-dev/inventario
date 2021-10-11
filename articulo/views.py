@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect
-
+from .models import Articulo
 from articulo.forms import ArticuloForm
-from articulo.models import Articulo
 
 # Create your views here.
+
+
 
 def articulo_agregar(request):
     if request.method=="GET":
@@ -12,10 +13,14 @@ def articulo_agregar(request):
         return render(request,'articulo/articulo_form.html',{'form':form})
 
     else:
-        form =ArticuloForm(request.POST)
+        form = ArticuloForm(request.POST)
+        print(form)
+
         if form.is_valid():
             form.save()
-        return redirect('articulo/articulo_list.html')
+        else:
+            print("Error")
+        return redirect('/articulo/listar/')
     
 
 

@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 # Create your models here.
 class Articulo(models.Model):
@@ -8,20 +7,15 @@ class Articulo(models.Model):
     nombre_articulo = models.CharField(max_length=200)
     descripcion_articulo = models.CharField(max_length=200)
     tipo_articulo = models.CharField(max_length=200)
-    id_area=models.name = models.ForeignKey('area.area',on_delete=models.CASCADE)
-    imagen_articulo = models.ImageField(upload_to='articulo/images/')
+    id_area = models.name = models.ForeignKey('area.Area', on_delete=models.CASCADE)
+    imagen_articulo = models.ImageField(upload_to='%articulo/%imagenes',blank=True)
 
+       
+       
+       
+       
+def add(self):
+    self.save
 
-
-
-
-    def add(self):
-            self.save
-
-    def __str__(self):
-            return self.id_articulo
-#     + " " + self.id_articulo
-    
-    
-    
-   
+def __str__(self):
+    return self.name

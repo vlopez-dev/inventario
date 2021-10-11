@@ -17,7 +17,7 @@ def empresa_agregar(request):
         form =EmpresaForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('empresa/empresa_list.html')
+        return redirect('/empresa/listar/')
     
 
 

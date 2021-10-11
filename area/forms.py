@@ -7,6 +7,6 @@ class AreaForm(forms.ModelForm):
         model=Area
         fields = '__all__'
         
-        # labels = {
-        #     'Nombre':'Nombre',
-        # }
+        labels = {
+             'Nombre':'Nombre',
+        }
