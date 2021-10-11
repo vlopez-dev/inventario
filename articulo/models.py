@@ -9,13 +9,14 @@ class Articulo(models.Model):
     tipo_articulo = models.CharField(max_length=200)
     id_area = models.name = models.ForeignKey('area.Area', on_delete=models.CASCADE)
     imagen_articulo = models.ImageField(upload_to='%articulo/%imagenes',blank=True)
+    cantidad = models.IntegerField()
 
        
        
        
-       
-def add(self):
-    self.save
-
-def __str__(self):
-    return self.name
+    def __str__(self):
+        return self.nombre_articulo
+    
+    def add(self):
+        self.save
+    

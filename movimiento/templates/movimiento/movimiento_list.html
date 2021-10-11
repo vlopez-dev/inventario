@@ -1,0 +1,10 @@
+{% extends 'movimiento/base.html' %}
+
+
+{% block content %}
+{% for m in movimiento %}
+    <ul>
+        <li>{{ m.tipo }}</li>
+    </ul>
+{% endfor %}
+{% endblock content %}

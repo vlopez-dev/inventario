@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'empresa',
     'articulo',
     'area',
+    'movimiento',
     'crispy_forms',
 ]
 
@@ -80,9 +81,9 @@ WSGI_APPLICATION = 'inventario.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'inventario',
-        'USER': 'inventario',
-        'PASSWORD': 'inventario',
+        'NAME': 'inventariotest',
+        'USER': 'proyecto',
+        'PASSWORD': 'proyecto',
         'HOST': 'localhost',
         'PORT': '',
     }
