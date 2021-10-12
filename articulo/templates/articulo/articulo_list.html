@@ -4,7 +4,14 @@
 {% block content %}
 {% for a in articulo %}
     <ul>
-        <li> {{ a.nombre_articulo }} </li>
+        <li> 
+            <h4>Articulo:</h4>{{ a.nombre_articulo }} <br>
+            <h4>Area</h4>{{a.id_area}}<br>
+            <h4>Cantidad:</h4> {{a.cantidad}} <br>
+            <h4>Movimiento de Area:</h4>{{a.id_area_id}}
+        
+        
+        </li>
     </ul>
 {% endfor %}
 {% endblock content %}

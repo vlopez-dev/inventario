@@ -1,4 +1,4 @@
-{% extends 'movimiento/base.html' %}
+{% extends 'articulo/base.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -7,4 +7,8 @@
     {{form|crispy}}
     <button type="submit" class="btn btn-success">Guardar</button>
 </form>
+
+
+    <button><a href="/movimiento/listar">Movimiento Listar</a></button>
+
 {% endblock content %}

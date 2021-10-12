@@ -1,5 +1,7 @@
 from django.db import models
 
+from area.models import Area
+
 
 # Create your models here.
 class Articulo(models.Model):
@@ -20,3 +22,22 @@ class Articulo(models.Model):
     def add(self):
         self.save
     
+    
+    
+class Movimiento(models.Model):
+    id_movimiento=models.AutoField(primary_key=True)
+    id_articulo = models.name=models.ForeignKey('articulo.Articulo',on_delete=models.CASCADE)
+    id_area = models.name=models.ForeignKey('area.Area',on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    motivo = models.CharField(max_length=100)
+        
+        
+        
+        
+        
+       
+    def __str__(self):
+        return self.nombre_articulo
+    
+    def add(self):
+        self.save

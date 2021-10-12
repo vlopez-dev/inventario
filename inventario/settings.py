@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'empresa',
     'articulo',
     'area',
-    'movimiento',
     'crispy_forms',
 ]
 

@@ -20,7 +20,7 @@ urlpatterns = [
     path('empresa/', include("empresa.urls")),
     path('area/', include("area.urls")),
     path('articulo/', include("articulo.urls")),
-    path('movimiento/', include("movimiento.urls")),
+    path('movimiento/', include("articulo.urls")),
 
 
 
