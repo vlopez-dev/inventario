@@ -28,7 +28,7 @@ class Movimiento(models.Model):
     id_movimiento=models.AutoField(primary_key=True)
     id_articulo = models.name=models.ForeignKey('articulo.Articulo',on_delete=models.CASCADE)
     id_area = models.name=models.ForeignKey('area.Area',on_delete=models.CASCADE)
-    cantidad = models.IntegerField()
+    cantidadmovimiento = models.IntegerField()
     motivo = models.CharField(max_length=100)
         
         
@@ -37,7 +37,7 @@ class Movimiento(models.Model):
         
        
     def __str__(self):
-        return self.nombre_articulo
+        return self.motivo
     
     def add(self):
         self.save

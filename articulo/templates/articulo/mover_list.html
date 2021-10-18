@@ -3,9 +3,9 @@
 
 {% block content %}
 {% for m in movimiento %}
-    <ul>
-        <li> {{ m.nombre_articulo }} </li>
+    <div class="movimiento">
+        <h5>Articulo:  {{ m.nombre_articulo }} </h5>
+    </div>
 
-    </ul>
 {% endfor %}
 {% endblock content %}

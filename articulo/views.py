@@ -22,6 +22,12 @@ def articulo_agregar(request):
             print("Error")
         return redirect('/articulo/listar/')
     
+    
+    
+def delete_articulo(request):
+    articulo = Articulo.objects.get(pk=id)
+    articulo.delete()
+    return redirect('/articulo/list')
 
 
 
@@ -59,7 +65,7 @@ def articulo_mover(request):
 
 def listar_movimiento(request):
     movimiento = Movimiento.objects.all()
-    return render(request,'articulo/mover_list.html',{'movimiento':movimientos})
+    return render(request,'articulo/mover_list.html',{'movimiento':movimiento})
 
 
 

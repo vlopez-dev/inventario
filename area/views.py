@@ -25,3 +25,11 @@ def listar_area(request):
     areas = Area.objects.all()
 
     return render(request,'area/area_list.html',{'area':areas})
+
+
+
+    
+def delete_area(request):
+    area = Area.objects.get(pk=id)
+    area.delete()
+    return redirect('/area/list')

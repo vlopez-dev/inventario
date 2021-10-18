@@ -16,6 +16,7 @@ def empresa_agregar(request):
     
         return render(request,'empresa/empresa_form.html',{'form':form})
 
+
     else:
         form =EmpresaForm(request.POST)
         if form.is_valid():
@@ -23,13 +24,16 @@ def empresa_agregar(request):
         return redirect('/empresa/listar/')
     
 
-
-
 def listar_empresa(request):
     empresas = Empresa.objects.all()
     return render(request,'empresa/empresa_list.html',{'empresa':empresas})
 
 
 
+
+def delete_empresa(request,id):
+    empresa = Empresa.objects.get(pk=id)
+    empresa.delete()
+    return redirect('/empresa_list')
 
 
