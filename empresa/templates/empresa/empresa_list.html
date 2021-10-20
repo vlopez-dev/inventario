@@ -1,21 +1,41 @@
-{% extends 'empresa/base.html' %}
+
+
+
+{% extends "empresa/base.html" %}
 
 
 {% block content %}
-{% for e in empresa %}
-    <ul>
-        <li>{{ e.nombre }}</li>
-    </ul>
-
-
-
-{% comment %} 
-<form action="{% url 'delete_empresa' empresa.id %}" method="post" class="d-inline">
-            {% csrf_token %}
-        <button type="submit" class="btn">
-    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+            <td>Nombre Name</td>
+           
+            <td>
+                <a href="{% url 'empresa_agregar' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Add New
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for e in empresa %}
+            <tr>
+                <td>{{ e.nombre }}</td>
+               
+                <td>
+                    <a href="{% url 'empresa_update' empresa.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a> 
+                    {% comment %} <form action="{% url 'empresa_delete' empresa.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
                         </button>
- </form> {% endcomment %}
-{% endfor %}
-{% endblock content %}
+                    </form> {% endcomment %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
+{% endblock content %}
