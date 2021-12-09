@@ -5,7 +5,8 @@ from django.db import models
 class Empresa(models.Model):
     id_empresa = models.AutoField(primary_key=True,null=False)
     nombre = models.CharField(max_length=100)
-
+    direccion = models.CharField(max_length=50)
+    telefono = models.CharField(max_length=20)   
 
 
 
