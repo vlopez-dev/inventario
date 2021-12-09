@@ -1,0 +1,50 @@
+{% extends 'area/base.html' %}
+{% block content %}
+<div class="container">
+<div class="row">
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+          <td>id</td>
+  
+            <td>Nombre</td>
+            <td>
+                <a href="{% url 'area_agregar' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Nuevo
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in listar_area  %}
+            <tr>
+              <td>{{i.id_empresa}}</td>
+  
+                <td>{{i.nombre}}</td>
+               
+                <td>
+                  <td>
+                    <a href="{% url 'area_update' i.id_area %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+              
+                    <form action="{% url 'area_delete' i.id_area %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-sm text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+{% endblock content %}

@@ -4,7 +4,7 @@
 root{
   /*colores*/
 
-  --nav:#7267CB;
+  --nav:#0060A2;
  
 
 }
@@ -92,7 +92,7 @@ body {
  * Navbar
  */
   .nav-color{
-    background-color: #7267CB !important;
+    background-color: #0060A2 !important;
   }
 
 .navbar-brand {
