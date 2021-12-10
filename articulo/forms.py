@@ -9,14 +9,8 @@ class ArticuloForm(forms.ModelForm):
     class Meta:
         model=Articulo
         fields = '__all__'
-        
-      
-      
-      
 class MovimientoForm(forms.ModelForm):
 
     class Meta:
         model=Movimiento
         fields = '__all__'
-        
-      

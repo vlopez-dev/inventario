@@ -1,71 +1,61 @@
 from django.shortcuts import render,redirect
 from .models import Articulo, Movimiento
 from articulo.forms import ArticuloForm, MovimientoForm
+from django.contrib import messages
 
 # Create your views here.
 
 
 
-def articulo_agregar(request):
-    if request.method=="GET":
-        form =ArticuloForm()
-    
-        return render(request,'articulo/articulo_form.html',{'form':form})
 
+def articulo_agregar(request,id_articulo=0):
+    if request.method == "GET":
+        if id_articulo == 0 :
+            form = ArticuloForm()
+        else:
+            articulo = Articulo.objects.get(pk=id_articulo)
+            #invernadero = Invernadero.objects.filter(pk=id_invernadero).first()
+
+            form = ArticuloForm(instance=articulo)
+        return render(request, 'articulo/articulo_agregar.html', {'form': form})
     else:
-        form = ArticuloForm(request.POST)
-        print(form)
-
+        if id_articulo == 0:
+            form = ArticuloForm(request.POST)
+        else:
+            articulo = Articulo.objects.get(pk=id_articulo)
+            form = ArticuloForm(request.POST,instance= articulo)
         if form.is_valid():
             form.save()
-        else:
-            print("Error")
-        return redirect('/articulo/listar/')
-    
-    
-    
-def delete_articulo(request):
-    articulo = Articulo.objects.get(pk=id)
-    articulo.delete()
-    return redirect('/articulo/list')
+            messages.add_message(request, messages.INFO, 'Agregado correctamente!.')
+
+        return redirect('/articulo/listar_articulo/')
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 def listar_articulo(request):
-    articulos = Articulo.objects.all()
-    return render(request,'articulo/articulo_list.html',{'articulo':articulos})
+    context = {'listar_articulo': Articulo.objects.all()}
+    return render(request, "articulo/listar.html", context)
 
 
 
 
-
-
-def articulo_mover(request):
-    if request.method=="GET":
-        form =MovimientoForm()
-    
-        return render(request,'articulo/mover_form.html',{'form':form})
-
-    else:
-        form = MovimientoForm(request.POST)
-        print(form)
-
-        if form.is_valid():
-            form.save()
-        else:
-            print("Error")
-        return redirect('/articulo/listar/')
-    
-    
-    
-    
-    
-    
-    
-
-def listar_movimiento(request):
-    movimiento = Movimiento.objects.all()
-    return render(request,'articulo/mover_list.html',{'movimiento':movimiento})
+def delete_articulo(request,id_articulo):
+    articulo = Articulo.objects.get(pk=id_articulo)
+    articulo.delete()
+    return redirect('/articulo/listar_articulo/')
 
 
 

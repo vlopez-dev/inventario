@@ -64,6 +64,6 @@ def listar_empresa(request):
 def delete_empresa(request,id_empresa):
     empresa = Empresa.objects.get(pk=id_empresa)
     empresa.delete()
-    return redirect('/empresa_list')
+    return redirect('/listar/')
 
 

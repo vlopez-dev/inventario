@@ -1,4 +1,4 @@
-{% extends 'area/base.html' %}
+{% extends 'articulo/base.html' %}
 {% load crispy_forms_tags %}
 {{form.mobile|as_crispy_field}}
 
@@ -7,26 +7,39 @@
   <div class="row">
     <div class="col-md-3"></div>
 
-    <div class="col-md-6">
-            <h5>Area</h5>
+    <div class="col-md-6 ">
+            <h5>Articulo</h5>
             <form action=""method="POST"autocomplete="off"class="justify-content-center forms_st">
               <div class="mb-4">
                 {% csrf_token %} 
 
-                {{ form.id_empresa|as_crispy_field }}
+                {{ form.nombre_articulo|as_crispy_field }}
 
               </div>
               <div class="mb-4">
-                {{ form.nombre|as_crispy_field }}
+                {{ form.descripcion_articulo|as_crispy_field }}
 
               </div>
               <div class="mb-4">
+                {{ form.tipo_articulo|as_crispy_field }}
+
+              </div>
+              <div class="mb-4">
+                {{ form.id_area|as_crispy_field }}
+
+              </div>
+              <div class="mb-4">
+                {{ form.imagen_articulo|as_crispy_field }}
+
+              </div>
+              <div class="mb-4">
+                {{ form.cantidad|as_crispy_field }}
 
               </div>
               <button type="submit" class="btn btn-primary">Guardar</button>
               <div class="col-md-4">
                 <a
-                  href="{% url 'listar_area' %}"
+                  href="{% url 'articulo_listar' %}"
                   class="btn-block btn-sm"
                 >
                 <img src="https://img.icons8.com/color-glass/48/000000/list.png"/>
