@@ -32,8 +32,27 @@ def articulo_agregar(request,id_articulo=0):
 
 
 
+def movimiento(request,id_movimiento=0):
+    if request.method == "GET":
+        if id_movimiento == 0 :
+            form = MovimientoForm()
+        else:
+            movimiento = Movimiento.objects.get(pk=id_movimiento)
+            #invernadero = Invernadero.objects.filter(pk=id_invernadero).first()
 
+            form = MovimientoForm(instance=movimiento)
+        return render(request, 'articulo/movimiento_form.html', {'form': form})
+    else:
+        if id_movimiento == 0:
+            form = MovimientoForm(request.POST)
+        else:
+            movimiento = Movimiento.objects.get(pk=id_movimiento)
+            form = MovimientoForm(request.POST,instance= movimiento)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.INFO, 'Agregado correctamente!.')
 
+        return redirect('/articulo/listar_articulo/')
 
 
 
@@ -59,3 +78,7 @@ def delete_articulo(request,id_articulo):
 
 
 
+def mover(request,id_articulo,area_nueva=2,cantidad=2):
+    form= MovimientoForm()
+
+    return
