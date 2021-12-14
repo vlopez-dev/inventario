@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect
 from .models import Articulo, Movimiento
 from articulo.forms import ArticuloForm, MovimientoForm
 from django.contrib import messages
+from django.db.models import Sum
 
 # Create your views here.
 
@@ -89,3 +90,7 @@ def delete_movimientos(request,id_movimiento):
     movimiento.delete()
     return redirect('/articulo/listar_articulo/')
 
+
+
+def filtro_stock(request):
+    cantidad_articulos= Movimiento.aggregate(Sum('cantidad_mover'))
