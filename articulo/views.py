@@ -59,3 +59,12 @@ def delete_articulo(request,id_articulo):
 
 
 
+def movimiento(request,id_articulo,cantidadamover):
+    articulo = Articulo.objects.get(pk=id_articulo)
+    cantidad = articulo.cantidad
+    
+    if cantidad > 0 and cantidadamover > 0:
+        cantidadfinal= cantidad - cantidadamover
+        
+        articulo
+    return
