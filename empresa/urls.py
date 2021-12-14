@@ -8,7 +8,7 @@ urlpatterns = [
     path('<int:id_empresa>/', views.empresa_agregar,name='empresa_update'), # get and post req. for update operation
 
     path("listar/",views.listar_empresa,name='listar'),
-    path("",views.home,name='home'),
+    path("home/",views.ultimos_movimientos,name='home'),
 
 
 ]

@@ -1,9 +1,100 @@
 {% extends 'empresa/base.html' %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+
+  
+
+<div class=" col-md-6">
+    <div class="card-valores"><span class="icon"></span>
+        <div class="title">
+            <p>Ultimos Movimientos</p>
+            {% for i in movimientos  %}
+            <tbody>
+                <tr>
+                 
+                  <td>{{i.area_origen}}</td>
+                  <td>{{i.cantidad_mover}}</td>
+                </tr>
+            
+            </tbody>
+
+            
+
+            {% endfor %}
+
+        </div>
+        <div class="temp"><sup></sup>
+
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="header"></div>
+                <div class="value"></div>
+            </div>
+            <div class="col-4">
+                <div class="header"></div>
+                <div class="value"></div>
+            </div>
+            <div class="col-4">
+                <div class="header"></div>
+                <div class="value"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class=" col-md-6">
+    <div class="card-valores"><span class="icon"></span>
+        <div class="title">
+            <p>Articulos agregados</p>
+        </div>
+        <div class="temp"><sup></sup>
+
+            {% for i in articulos  %}
+                <ul>
+                    
+                    <li>{{i.nombre_articulo}}</li>
+                    <li>{{i.tipo_articulo}}</li>
+
+                </ul>
+                  
 
 
-<h1>Home</h1>
+            {% endfor %}
+        
+
+        
+
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="header"></div>
+                <div class="value"></div>
+            </div>
+            <div class="col-4">
+                <div class="header"></div>
+                <div class="value"></div>
+            </div>
+            <div class="col-4">
+                <div class="header"></div>
+                <div class="value"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+
 
 {% endblock content %}
 

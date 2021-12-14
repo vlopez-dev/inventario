@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render,redirect
 from .models import Articulo, Movimiento
 from articulo.forms import ArticuloForm, MovimientoForm
@@ -77,29 +78,14 @@ def delete_articulo(request,id_articulo):
     return redirect('/articulo/listar_articulo/')
 
 
+def listar_movimientos(request):
+    context = {'listar_movimientos':Movimiento.objects.all()}
+    return render(request,"articulo/mover_list.html")
 
-# def mover(request):
-#     art = Articulo.objects.last()
-    
-#     area_origen =art.id_area_id
-#     cantidad_origen = art.cantidad
-    
-    
-#     movimiento= Movimiento.objects.last()
-#     area_destino = movimiento.area_destino_id
-#     cantidad_mover = movimiento.cantidad_mover
-    
-#     cantidad_final = cantidad_origen - cantidad_mover
-#     destino_final = area_destino
-#     art.delete()
 
-#     ob = Articulo.objects.create(id_articulo = art.id_articulo,
-#                                  nombre_articulo = art.nombre_articulo,
-#                                  descripcion_articulo = art.descripcion_articulo, 
-#                                  tipo_articulo = art.tipo_articulo,
-#                                  imagen_articulo = art.imagen_articulo,
-#                                  id_area_id = destino_final,
-#                                  cantidad = cantidad_final)
 
-#     ob.save()
-#     return redirect('/articulo/listar_articulo/')
+def delete_movimientos(request,id_movimiento):
+    movimiento = Movimiento.objects.get(pk=id_movimiento)
+    movimiento.delete()
+    return redirect('/articulo/listar_articulo/')
+

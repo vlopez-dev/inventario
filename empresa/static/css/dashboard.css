@@ -147,3 +147,38 @@ body {
 .table_crud{
   margin-top: 25px;
 }
+
+
+
+
+@media(max-width:767px) {
+  .container {
+      height: fit-content
+  }
+}
+
+.weather {
+  width: 77%
+}
+
+@media(max-width:767px) {
+  .weather {
+      width: 100%
+  }
+}
+
+.card-valores {
+  padding: 1rem;
+  margin: 1.5rem 0vw;
+  border-radius: 1rem;
+  background-color: white;
+  border-color: rgba(238, 237, 237, 0.22);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+  text-align: center;
+  outline: 1px solid red;
+}
+
+.shadow-form{
+  border-color: rgba(238, 237, 237, 0.22);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
