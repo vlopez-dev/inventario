@@ -20,11 +20,9 @@
                 {{ form.nombre|as_crispy_field }}
 
               </div>
-              <div class="mb-4">
-
-              </div>
-              <button type="submit" class="btn btn-primary">Guardar</button>
-              <div class="col-md-4">
+            
+              <div class="d-grid gap-2 d-md-block">
+               
                 <a
                   href="{% url 'listar_area' %}"
                   class="btn-block btn-sm"
@@ -32,6 +30,7 @@
                 <img src="https://img.icons8.com/color-glass/48/000000/list.png"/>
                  Listado
                 </a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
               </div>
             </form>
     </div>

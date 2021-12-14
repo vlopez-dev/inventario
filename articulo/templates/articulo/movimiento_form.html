@@ -1,3 +1,6 @@
+
+
+
 {% extends 'articulo/base.html' %}
 {% load crispy_forms_tags %}
 {{form.mobile|as_crispy_field}}
@@ -13,27 +16,22 @@
               <div class="mb-4">
                 {% csrf_token %} 
 
-                {{ form.nombre_articulo|as_crispy_field }}
+                {{form|crispy}}
 
               </div>
               <div class="mb-4">
-                {{ form.descripcion_articulo|as_crispy_field }}
 
               </div>
               <div class="mb-4">
-                {{ form.tipo_articulo|as_crispy_field }}
 
               </div>
               <div class="mb-4">
-                {{ form.id_area|as_crispy_field }}
 
               </div>
               <div class="mb-4">
-                {{ form.imagen_articulo|as_crispy_field }}
 
               </div>
               <div class="mb-4">
-                {{ form.cantidad|as_crispy_field }}
 
               </div>
               <div class="d-grid gap-2 d-md-block">
@@ -55,3 +53,24 @@
 </div>
 
 {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

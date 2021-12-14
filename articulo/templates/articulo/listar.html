@@ -1,6 +1,6 @@
 {% extends 'articulo/base.html' %}
 {% block content %}
-<div class="container">
+<div class="container table_crud">
 <div class="row">
 
 <div class="col-md-3"></div>
@@ -12,6 +12,10 @@
           <td>Nombre</td>
   
             <td>Cantidad</td>
+<<<<<<< HEAD
+=======
+            <td>Area</td>
+>>>>>>> d7d4246b96db44746003331b4e45fc3f711a7520
 
             <td>
                 <a href="{% url 'articulo_agregar' %}" class="btn btn-outline-success">
@@ -26,13 +30,16 @@
               <td>{{i.nombre_articulo}}</td>
   
                 <td>{{i.cantidad}}</td>
-               
+                <td>{{i.id_area_id}}</td>
+
                 <td>
                   <td>
                     <a href="{% url 'articulo_update' i.id_articulo %}" class="btn text-secondary px-0">
                         <i class="far fa-edit fa-lg"></i>
                     </a>
-              
+                    {% comment %} <a href="{% url 'articulo_mover' i.id_articulo %}" class="btn text-secondary px-0">
+                        <img src="https://img.icons8.com/offices/20/000000/move-stock.png"/>                    </a>
+               {% endcomment %}
                     <form action="{% url 'articulo_delete' i.id_articulo %}" method="post" class="d-inline">
                         {% csrf_token %}
                         <button type="submit" class="btn">
