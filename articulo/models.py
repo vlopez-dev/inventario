@@ -22,12 +22,9 @@ class Articulo(models.Model):
     nombre_articulo = models.CharField(max_length=30)
     descripcion_articulo = models.CharField(max_length=200)
     tipo_articulo = models.CharField(max_length=30,choices=ARTICULOS_TIPO,default='electronico')
-    id_area = models.name = models.ForeignKey('area.Area', on_delete=models.CASCADE)
     imagen_articulo = models.ImageField(upload_to='%articulo/%imagenes',blank=True)
-    cantidad = models.IntegerField()
 
-
-
+   
     def __str__(self):
         return self.nombre_articulo
     
@@ -35,7 +32,10 @@ class Articulo(models.Model):
         self.save
 
 class Movimiento(models.Model):
-    id_articulo = models.name=models.ForeignKey('articulo.Articulo',on_delete=models.CASCADE)
     id_movimiento = models.AutoField(primary_key=True)
+        
+    id_articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
+    area_origen = models.CharField(max_length=100)
     area_destino= models.name=models.ForeignKey('area.Area',on_delete=models.CASCADE)
+    
     cantidad_mover = models.IntegerField()

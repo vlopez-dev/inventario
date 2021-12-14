@@ -50,7 +50,6 @@ def movimiento(request,id_movimiento=0):
             form = MovimientoForm(request.POST,instance= movimiento)
         if form.is_valid():
             form.save()
-            mover(request)
             messages.add_message(request, messages.INFO, 'Agregado correctamente!.')
 
         return redirect('/articulo/listar_articulo/')
@@ -79,28 +78,28 @@ def delete_articulo(request,id_articulo):
 
 
 
-def mover(request):
-    art = Articulo.objects.last()
+# def mover(request):
+#     art = Articulo.objects.last()
     
-    area_origen =art.id_area_id
-    cantidad_origen = art.cantidad
+#     area_origen =art.id_area_id
+#     cantidad_origen = art.cantidad
     
     
-    movimiento= Movimiento.objects.last()
-    area_destino = movimiento.area_destino_id
-    cantidad_mover = movimiento.cantidad_mover
+#     movimiento= Movimiento.objects.last()
+#     area_destino = movimiento.area_destino_id
+#     cantidad_mover = movimiento.cantidad_mover
     
-    cantidad_final = cantidad_origen - cantidad_mover
-    destino_final = area_destino
-    art.delete()
+#     cantidad_final = cantidad_origen - cantidad_mover
+#     destino_final = area_destino
+#     art.delete()
 
-    ob = Articulo.objects.create(id_articulo = art.id_articulo,
-                                 nombre_articulo = art.nombre_articulo,
-                                 descripcion_articulo = art.descripcion_articulo, 
-                                 tipo_articulo = art.tipo_articulo,
-                                 imagen_articulo = art.imagen_articulo,
-                                 id_area_id = destino_final,
-                                 cantidad = cantidad_final)
+#     ob = Articulo.objects.create(id_articulo = art.id_articulo,
+#                                  nombre_articulo = art.nombre_articulo,
+#                                  descripcion_articulo = art.descripcion_articulo, 
+#                                  tipo_articulo = art.tipo_articulo,
+#                                  imagen_articulo = art.imagen_articulo,
+#                                  id_area_id = destino_final,
+#                                  cantidad = cantidad_final)
 
-    ob.save()
-    return redirect('/articulo/listar_articulo/')
+#     ob.save()
+#     return redirect('/articulo/listar_articulo/')
