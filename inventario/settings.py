@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'empresa',
     'articulo',
     'area',
+    'registro',
     'crispy_forms',
     'django_extensions',
 ]
