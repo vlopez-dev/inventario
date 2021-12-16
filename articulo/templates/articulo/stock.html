@@ -1,0 +1,9 @@
+{% extends 'articulo/base.html' %}
+{% block content %}
+    {% for i in articulos_list  %}
+
+            <li>{{i.id_articulo}}</li>
+
+    {% endfor %}
+
+{% endblock content %}

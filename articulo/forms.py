@@ -19,3 +19,11 @@ class MovimientoForm(forms.ModelForm):
     class Meta:
         model = Movimiento
         fields = '__all__'
+
+
+class FiltroStockForm(forms.ModelForm):
+    area_origen = forms.ModelChoiceField(queryset=Area.objects.all(), widget= forms.Select(attrs={'class':'form-control'}), )
+    desechable = forms.BooleanField()
+    class Meta:
+        model = Movimiento
+        fields = ['area_origen','desechable']

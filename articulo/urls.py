@@ -17,6 +17,8 @@ urlpatterns = [
     # path("movimiento/",views.articulo_mover,name='articulo_movimiento'),
     # path("listar/",views.listar_movimiento,name='movimiento_listar'),
 
+    path("stock/",views.filtro_stock,name='stock'),
+
 
 
 ]
