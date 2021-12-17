@@ -13,11 +13,15 @@
                 <div class="mb-4">
                   {% csrf_token %} 
 
+<<<<<<< HEAD
                   {{ form.area_origen|as_crispy_field }}
+=======
+                {{form|crispy}}
+
+>>>>>>> d61311519c7069a4d2a3894315b0a245b19c12fc
 
                 </div>
                 <div class="mb-4">
-                  {{ form.desechable|as_crispy_field }} 
 
                 </div>
                 <div class="d-grid gap-2 d-md-block">

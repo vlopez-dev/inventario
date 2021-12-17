@@ -1,8 +1,17 @@
 {% extends 'articulo/base.html' %}
 {% block content %}
+        
     {% for i in articulos_list  %}
 
             <li>{{i.id_articulo}}</li>
+            <li>{{i.nombre_articulo}}</li>
+            <li>{{i.tipo_articulo}}</li>
+            <li>{{i.desechable}}</li>
+            <h1>Movimieno</h1>
+            <li>{{i.id_movimiento}}</li>
+            <li>{{i.cantidad_mover}}</li>
+
+
 
     {% endfor %}
 
