@@ -18,6 +18,7 @@ urlpatterns = [
     # path("listar/",views.listar_movimiento,name='movimiento_listar'),
 
     path("stock/",views.filtro_stock,name='stock'),
+    path("stock_area/",views.filtro_stock_area,name='stock_area'),
 
 
 
