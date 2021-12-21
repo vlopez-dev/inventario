@@ -35,7 +35,7 @@ class Articulo(models.Model):
 
 class Movimiento(models.Model):
     id_movimiento = models.AutoField(primary_key=True)
-
+    fecha = models.DateTimeField(auto_now_add=True)
     id_articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
     area_origen = models.CharField(max_length=100)
     area_destino= models.name=models.ForeignKey('area.Area',on_delete=models.CASCADE)
