@@ -1,0 +1,12 @@
+#Version django
+Django>=4.0
+
+#Crispy forms
+django-crispy-forms>=1.13.0
+
+#MysqlClient
+mysqlclient>=2.1.0
+
+
+#Pillow
+Pillow>=8.4.0

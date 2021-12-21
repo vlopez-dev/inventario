@@ -6,9 +6,8 @@ from empresa.models import Empresa
 
 class Area(models.Model):
  id_area= models.AutoField(primary_key=True)
-     
 
- id_empresa = models.name = models.ForeignKey('empresa.Empresa',on_delete=models.CASCADE)
+ id_empresa = models.name = models.ForeignKey(Empresa,on_delete=models.CASCADE)
  nombre = models.CharField(max_length=200)
 
 
