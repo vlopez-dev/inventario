@@ -1,18 +1,44 @@
 {% extends 'articulo/base.html' %}
 {% block content %}
-        
-    {% for i in articulos_list  %}
+<div class="container table_crud">
+<div class="row">
 
-            <li>{{i.id_articulo}}</li>
-            <li>{{i.nombre_articulo}}</li>
-            <li>{{i.tipo_articulo}}</li>
-            <li>{{i.desechable}}</li>
-            <h1>Movimieno</h1>
-            <li>{{i.id_movimiento}}</li>
-            <li>{{i.cantidad_mover}}</li>
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+          <td>Nombre</td>
+  
+            <td>Tipo</td>
+            <td>Desechable</td>
+            <td>Area origen</td>
+            <td>Cantidad</td>
+            <td>Area destino</td>
+
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in articulos_list  %}
+            <tr>
+              <td>{{i.nombre_articulo}}</td>
+  
+                <td>{{i.tipo_articulo}}</td>
+                <td>{{i.desechable}}</td>
+                <td>{{i.area_origen}}</td>
+
+                <td>{{i.cantidad_mover}}</td>
+                <td>{{i.area_destino_id}}</td>
 
 
-
-    {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
 
 {% endblock content %}

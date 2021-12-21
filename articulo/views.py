@@ -82,7 +82,7 @@ def delete_articulo(request,id_articulo):
 
 def listar_movimientos(request):
     context = {'listar_movimientos':Movimiento.objects.all()}
-    return render(request,"articulo/mover_list.html")
+    return render(request,"articulo/mover_list.html",context)
 
 
 
@@ -90,42 +90,6 @@ def delete_movimientos(request,id_movimiento):
     movimiento = Movimiento.objects.get(pk=id_movimiento)
     movimiento.delete()
     return redirect('/articulo/listar_articulo/')
-
-
-
-# def filtro_stock_total(request):
-#     stockmovtotal=Movimiento.objects.all().aggregate(Sum('cantidad_mover'))
-#     return render(request,"articulo/stock.html",stockmovtotal)
-
-
-# def filtro_stock_area(request):
-#     art_desechables = Articulo.objects.filter(desechable="True")
-#     for i in  art_desechables:
-#         articuloid=i.id_articulo
-#     stock_area=Movimiento.objects.filter(id_articulo_id=articuloid,area_destino_id="2").aggregate(Sum('cantidad_mover'))
-#     # queryset_2 = Movimiento.objects.filter(first_name__startswith='R') & User.objects.filter(last_name__startswith='D')
-#     str(stock_area.quey)
-#     return render(request,"articulo/stock.html",stock_area)
-
-# def filtro_stock_area(request):
-#    queryset = Articulo.objects.filter(Q(desechable=True)) & Movimiento.objects.filter(Q(area_origen='informatica'))
-#    return render(request,"articulo/stock.html",{'articulos':queryset})
-
-
-
-
-
-
-
-
-
-def filtro_stock_area(request):
-    articulos = Articulo.objects.filter(desechable="True")
-    movimientos = Movimiento.objects.filter(area_destino_id="2")
-    articulos_list = (chain(articulos, movimientos))
-    print(articulos_list)
-      
-    return render(request,"articulo/stock.html",{'articulos_list':articulos_list})
 
 
 
@@ -141,7 +105,7 @@ def filtro_stock(request):
             desechable = form.cleaned_data['desechable']
             articulos = Articulo.objects.filter(desechable=desechable)
             # movimientos = Movimiento.objects.filter(area_destino_id=area_origen)
-            movimientos=Movimiento.objects.filter(area_destino_id=area_origen).aggregate(Sum('cantidad_mover'))
+            movimientos=Movimiento.objects.filter(area_origen=area_origen)
             print(movimiento)
             articulos_list = (chain(articulos, movimientos))
             print(articulos_list)
