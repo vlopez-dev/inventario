@@ -1,44 +1,77 @@
 {% extends 'articulo/base.html' %}
 {% block content %}
-<div class="container table_crud">
-<div class="row">
 
-<div class="col-md-3"></div>
-<div class="col-md-6">
 
-<table class="table table-borderless">
-    <thead class="border-bottom font-weight-bold">
-        <tr>
-          <td>Nombre</td>
-  
-            <td>Tipo</td>
-            <td>Desechable</td>
-            <td>Area origen</td>
-            <td>Cantidad</td>
-            <td>Area destino</td>
 
-            
-        </tr>
-    </thead>
+
+
+
+<h5>Stock</h5>
+<div class="table-responsive  ">
+  <table class="table table-bordered" >
+    <thead>
+    <tr>
+      <td>Nombre</td>
+      <td>Tipo</td>
+      <td>Desechable</td>
+      <td>Area origen</td>
+      <td>Cantidad</td>
+      <td>Area destino</td>
+
+
+    </tr>
     <tbody>
-        {% for i in articulos_list  %}
-            <tr>
-              <td>{{i.nombre_articulo}}</td>
+
+    {% for i in articulos_list  %}
+      <tr>
+        <td>{{i.nombre_articulo}}</td>
   
-                <td>{{i.tipo_articulo}}</td>
-                <td>{{i.desechable}}</td>
-                <td>{{i.area_origen}}</td>
+        <td>{{i.tipo_articulo}}</td>
+        <td>{{i.desechable}}</td>
+        <td>{{i.area_origen}}</td>
 
-                <td>{{i.cantidad_mover}}</td>
-                <td>{{i.area_destino_id}}</td>
+        <td>{{i.cantidad_mover}}</td>
+        <td>{{i.area_destino_id}}</td>
 
+      </tr>
+  </thead>
 
-            </tr>
-        {% endfor %}
+     {% endfor %}
     </tbody>
-  </table>
-  </div>
-</div>
-</div>
+
+    </table>
+
+    {% if lecturas_list.has_other_pages %}
+
+        <ul class="pagination">
+
+    {% if lecturas_list.has_previous %}
+
+      <li><a href="?page={{ lecturas.previous_page_number }}">&laquo;</a></li>
+
+    {% else %}
+
+      <li class="disabled"><span>&laquo;</span></li>
+
+    {% endif %}
+
+    {% for i in lecturas_list.paginator.page_range %}
+      {% if lecturas.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+
+         <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+
+    {% endfor %}
+    
+      {% if lecturas_list.has_next %}
+         <li><a href="?page={{ lecturas.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+  </div>  
 
 {% endblock content %}

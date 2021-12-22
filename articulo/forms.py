@@ -14,7 +14,7 @@ class ArticuloForm(forms.ModelForm):
 
 
 class MovimientoForm(forms.ModelForm):
-    area_origen = forms.ModelChoiceField(queryset=Area.objects.all(), widget= forms.Select(attrs={'class':'form-control'}), )
+    # area_origen = forms.ModelChoiceField(queryset=Area.objects.all(), widget= forms.Select(attrs={'class':'form-control'}), )
 
     class Meta:
         model = Movimiento
@@ -22,8 +22,9 @@ class MovimientoForm(forms.ModelForm):
 
 
 class FiltroStockForm(forms.ModelForm):
-    area_origen = forms.ModelChoiceField(queryset=Area.objects.all(), widget= forms.Select(attrs={'class':'form-control'}), )
+    # area_origen = forms.ModelChoiceField(queryset=Area.objects.all(), widget= forms.Select(attrs={'class':'form-control'}), )
+    
     desechable = forms.BooleanField()
     class Meta:
         model = Movimiento
-        fields = ['area_origen','desechable']
+        fields = ['area_destino','desechable']

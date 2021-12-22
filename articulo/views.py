@@ -101,11 +101,11 @@ def filtro_stock(request):
      else:
          form= FiltroStockForm(request.POST)
          if form.is_valid():
-            area_origen = form.cleaned_data['area_origen']
+            area_destino = form.cleaned_data['area_destino']
             desechable = form.cleaned_data['desechable']
             articulos = Articulo.objects.filter(desechable=desechable)
             # movimientos = Movimiento.objects.filter(area_destino_id=area_origen)
-            movimientos=Movimiento.objects.filter(area_origen=area_origen)
+            movimientos=Movimiento.objects.filter(area_destino=area_destino).aggregate(Sum('cantidad_mover'))
             print(movimiento)
             articulos_list = (chain(articulos, movimientos))
             print(articulos_list)
