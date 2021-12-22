@@ -1,0 +1,51 @@
+{% extends 'articulo/base.html' %}
+{% block content %}
+<div class="container table_crud">
+<div class="row">
+
+<div class="col-md-3"></div>
+<div class="col-md-6">
+
+<table class="table table-borderless">
+    <thead class="border-bottom font-weight-bold">
+        <tr>
+          <td>Nombre</td>
+  
+            <td>Tipo</td>
+
+            <td>
+                <a href="{% url 'articulo_agregar' %}" class="btn btn-outline-success">
+                    <i class="fas fa-plus"></i> Nuevo
+                </a>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in listar_articulo  %}
+            <tr>
+              <td>{{i.nombre_articulo}}</td>
+  
+                <td>{{i.tipo_articulo}}</td>
+
+                <td>
+                  <td>
+                    <a href="{% url 'articulo_update' i.id_articulo %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                  
+                    <form action="{% url 'articulo_delete' i.id_articulo %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-sm text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+
+{% endblock content %}

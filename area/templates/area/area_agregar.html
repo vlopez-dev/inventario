@@ -1,0 +1,41 @@
+{% extends 'area/base.html' %}
+{% load crispy_forms_tags %}
+{{form.mobile|as_crispy_field}}
+
+{% block content %}
+<div class="container-sm">
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+            <h5 class="titulos">Area</h5>
+            <form action=""method="POST"autocomplete="off"class="justify-content-center forms_st shadow-form">
+              <div class="mb-4">
+                {% csrf_token %} 
+
+                {{ form.id_empresa|as_crispy_field }}
+
+              </div>
+              <div class="mb-4">
+                {{ form.nombre|as_crispy_field }}
+
+              </div>
+            
+              <div class="d-grid gap-2 d-md-block">
+               
+                <a
+                  href="{% url 'listar_area' %}"
+                  class="btn-block btn-sm"
+                >
+                <img src="https://img.icons8.com/color-glass/48/000000/list.png"/>
+                 Listado
+                </a>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </div>
+            </form>
+    </div>
+    
+</div>
+</div>
+
+{% endblock content %}

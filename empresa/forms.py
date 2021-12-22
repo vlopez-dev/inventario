@@ -11,3 +11,17 @@ class EmpresaForm(forms.ModelForm):
             'Nombre':'Nombre',
             
         }
+        
+        
+        
+        
+
+
+
+    def __init__(self, *args, **kwargs):
+        super(EmpresaForm,self).__init__(*args, **kwargs)
+        # self.fields['position'].empty_label = "Select"
+        self.fields['nombre'].required = False
+
+
+# Falta definir que cambios deben estar en la modificacion
