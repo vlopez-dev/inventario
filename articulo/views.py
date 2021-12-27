@@ -105,8 +105,13 @@ def filtro_stock(request):
             desechable = form.cleaned_data['desechable']
             articulos = Articulo.objects.filter(desechable=desechable)
             # movimientos = Movimiento.objects.filter(area_destino_id=area_origen)
-            movimientos=Movimiento.objects.filter(area_destino=area_destino).aggregate(Sum('cantidad_mover'))
-            print(movimiento)
+            # movimientos=Movimiento.objects.filter(area_destino=area_destino)
+
+            movimientos = Movimiento.objects.filter(area_destino=area_destino).aggregate(TOTAL = Sum('cantidad_mover'))['TOTAL']
+
             articulos_list = (chain(articulos, movimientos))
             print(articulos_list)
             return render(request, 'articulo/stock.html',{'articulos_list':articulos_list})
+
+
+
