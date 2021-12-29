@@ -98,20 +98,16 @@ def filtro_stock(request):
      if request.method=="GET":
         form =FiltroStockForm()
         return render(request,'articulo/form_stock.html',{'form':form})
+
      else:
          form= FiltroStockForm(request.POST)
          if form.is_valid():
             area_destino = form.cleaned_data['area_destino']
             desechable = form.cleaned_data['desechable']
             articulos = Articulo.objects.filter(desechable=desechable)
-            # movimientos = Movimiento.objects.filter(area_destino_id=area_origen)
-            # movimientos=Movimiento.objects.filter(area_destino=area_destino)
-
-            # movimientos = Movimiento.objects.filter(area_destino=area_destino).aggregate(TOTAL = Sum('cantidad_mover'))
             movimientos = Movimiento.objects.filter(area_destino=area_destino)
             total = movimientos.aggregate(total=Sum('cantidad_mover'))
             articulos_list = (chain(articulos, movimientos,total))
-            print(articulos_list)
             return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'total':total})
 
 
