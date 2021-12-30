@@ -7,6 +7,8 @@ from django.db.models import Sum
 from django.db.models import Avg
 from django.db.models import Q
 from itertools import chain
+import json
+
 
 
 
@@ -106,9 +108,10 @@ def filtro_stock(request):
             desechable = form.cleaned_data['desechable']
             articulos = Articulo.objects.filter(desechable=desechable)
             movimientos = Movimiento.objects.filter(area_destino=area_destino)
-            total = movimientos.aggregate(total=Sum('cantidad_mover'))
+            total = movimientos.aggregate(Total=Sum('cantidad_mover'))
+            totalfinal=total.get('Total')
             articulos_list = (chain(articulos, movimientos,total))
-            return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'total':total})
+            return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
 
 
 
