@@ -6,6 +6,7 @@ root{
 
   --nav:#0060A2;
   --fuentes:#444444;
+  
  
 
 }
@@ -139,8 +140,14 @@ body {
 }
 
 .table, th{
-  border: 2px solid grey;
-  border-radius: 5px;
+  text-align: center !important;
+  /* border: 2px solid #A3E4DB; */
+  /* border-radius: 5px; */
+}
+
+
+.table>:not(caption)>*>*{
+  inset 0 0 0 9999px var(--bs-table-accent-bg)
 }
 
 .titulos{
