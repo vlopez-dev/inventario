@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from .forms import RegistroForm
+from django.contrib import messages
+
+from django.contrib.auth import login
 
 # Create your views here.
 
