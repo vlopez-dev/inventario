@@ -16,10 +16,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path,include,re_path
-
+from registro import views as registro_views
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("registro/", registro_views.registro_request, name="registro"),
+
     path('', include("empresa.urls")),
     path('area/', include("area.urls")),
     path('articulo/', include("articulo.urls")),
