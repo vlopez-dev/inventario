@@ -5,6 +5,8 @@ root{
   /*colores*/
 
   --nav:#0060A2;
+  --fuentes:#444444;
+  
  
 
 }
@@ -17,7 +19,7 @@ root{
 
 body {
   font-size: .875rem;
-}
+  }
 
 
 
@@ -66,12 +68,13 @@ body {
 
 .sidebar .nav-link {
   font-weight: 500;
-  color: #333;
+  color: var(--fuentes);
+
 }
 
 .sidebar .nav-link .feather {
   margin-right: 4px;
-  color: #727272;
+  color: var(--fuentes);
 }
 
 .sidebar .nav-link.active {
@@ -136,12 +139,22 @@ body {
 
 }
 
-.table, th, td {
-  border: 1px solid #82C000;
+.table, th{
+  text-align: center !important;
+  /* border: 2px solid #A3E4DB; */
+  /* border-radius: 5px; */
+}
+
+
+.table>:not(caption)>*>*{
+  inset 0 0 0 9999px var(--bs-table-accent-bg)
 }
 
 .titulos{
   margin-top: 25px;
+  text-align: center;
+  color: var(--fuentes);
+
 }
 
 .table_crud{
@@ -182,3 +195,45 @@ body {
   border-color: rgba(238, 237, 237, 0.22);
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
+
+
+.icons-nav{
+  width: 48px;
+}
+
+
+
+
+.video_login {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+
+
+
+
+.login-form{
+  background: rgba( 255, 255, 255, 0.1 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 3px );
+  -webkit-backdrop-filter: blur( 3px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+
+
+  .container_login{
+    margin-top: 150px;
+  }
+
+  .form_login{
+    padding: 64px;
+  }

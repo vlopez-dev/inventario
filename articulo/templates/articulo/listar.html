@@ -3,10 +3,10 @@
 <div class="container table_crud">
 <div class="row">
 
-<div class="col-md-3"></div>
-<div class="col-md-6">
+<div class="col-md-2"></div>
+<div class="col-md-8">
 
-<table class="table table-borderless">
+<table class="table table-striped">
     <thead class="border-bottom font-weight-bold">
         <tr>
           <td>Nombre</td>
@@ -27,7 +27,7 @@
   
                 <td>{{i.tipo_articulo}}</td>
 
-                <td>
+                
                   <td>
                     <a href="{% url 'articulo_update' i.id_articulo %}" class="btn text-secondary px-0">
                         <i class="far fa-edit fa-lg"></i>

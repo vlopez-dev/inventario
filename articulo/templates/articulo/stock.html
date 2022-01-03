@@ -5,10 +5,12 @@
 
 
 
-
-<h5>Stock</h5>
-<div class="table-responsive  ">
-  <table class="table table-bordered" >
+<div class="container table_crud">
+  <div class="row">
+  
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+  <table class="table table-striped" >
     <thead>
     <tr>
       <td>Nombre</td>
@@ -33,10 +35,15 @@
         <td>{{i.cantidad_mover}}</td>
         <td>{{i.area_destino_id}}</td>
 
+        
+
       </tr>
   </thead>
 
      {% endfor %}
+
+     <td>Total:{{totalfinal}}</td>
+
     </tbody>
 
     </table>
