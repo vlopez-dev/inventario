@@ -115,3 +115,35 @@ def filtro_stock(request):
 
 
 
+
+
+
+
+# def filtro_stock(request):
+#      if request.method=="GET":
+#         form =FiltroStockForm()
+#         return render(request,'articulo/form_stock.html',{'form':form})
+
+#      else:
+#          form= FiltroStockForm(request.POST)
+#          if form.is_valid():
+#             area_destino = form.cleaned_data['area_destino']
+#             desechable = form.cleaned_data['desechable']
+#             # articulos = Articulo.objects.filter(desechable=desechable)
+#             movimientos = Movimiento.objects.filter(area_destino=area_destino)
+#             total = movimientos.aggregate(Total=Sum('cantidad_mover'))
+#             totalfinal=total.get('Total')
+#             articulos_totales=[]
+#             for i in movimientos:
+#                 id_articulo = i.id_articulo_id
+#                 articulos = Articulo.objects.filter(desechable=desechable,id_articulo=id_articulo)
+#                 articulos_totales.append(articulos)
+                
+# 9            articulos_list = (chain( articulos_totales,movimientos,total))
+#             return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
+
+
+
+
+
+
