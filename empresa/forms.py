@@ -6,16 +6,12 @@ class EmpresaForm(forms.ModelForm):
     class Meta:
         model=Empresa
         fields = '__all__'
-        
-        labels = {
-            'Nombre':'Nombre',
-            
-        }
-        
-        
-        
-        
 
+
+        labels = {
+                    'nombre':'Nombre','direccion':'Dirección','telefono':'Teléfono'
+
+                }
 
 
     def __init__(self, *args, **kwargs):
