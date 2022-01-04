@@ -14,7 +14,6 @@ def area_agregar(request,id_area=0):
             form = AreaForm()
         else:
             area = Area.objects.get(pk=id_area)
-            #invernadero = Invernadero.objects.filter(pk=id_invernadero).first()
 
             form = AreaForm(instance=area)
         return render(request, 'area/area_agregar.html', {'form': form})
