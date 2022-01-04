@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.http import request
 from django.shortcuts import render,redirect
 from .models import Articulo, Movimiento
@@ -37,13 +38,14 @@ def articulo_agregar(request,id_articulo=0):
 
 
 
+
+
 def movimiento(request,id_movimiento=0):
     if request.method == "GET":
         if id_movimiento == 0 :
             form = MovimientoForm()
         else:
             movimiento = Movimiento.objects.get(pk=id_movimiento)
-            #invernadero = Invernadero.objects.filter(pk=id_invernadero).first()
 
             form = MovimientoForm(instance=movimiento)
         return render(request, 'articulo/movimiento_form.html', {'form': form})
@@ -57,7 +59,7 @@ def movimiento(request,id_movimiento=0):
             form.save()
             messages.add_message(request, messages.INFO, 'Agregado correctamente!.')
 
-        return redirect('/articulo/listar_articulo/')
+        return redirect('/articulo/listar_movimientos/')
 
 
 
@@ -91,7 +93,7 @@ def listar_movimientos(request):
 def delete_movimientos(request,id_movimiento):
     movimiento = Movimiento.objects.get(pk=id_movimiento)
     movimiento.delete()
-    return redirect('/articulo/listar_articulo/')
+    return redirect('/articulo/listar_movimientos/')
 
 
 
@@ -106,12 +108,15 @@ def filtro_stock(request):
          if form.is_valid():
             area_destino = form.cleaned_data['area_destino']
             desechable = form.cleaned_data['desechable']
-            articulos = Articulo.objects.filter(desechable=desechable)
             movimientos = Movimiento.objects.filter(area_destino=area_destino)
             total = movimientos.aggregate(Total=Sum('cantidad_mover'))
             totalfinal=total.get('Total')
+            
+            articulos = Articulo.objects.filter(desechable=desechable,id_articulo_id=movimientos.id_articulo_id)
+           
             articulos_list = (chain(articulos, movimientos,total))
             return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
+
 
 
 

@@ -54,11 +54,3 @@ def ultimos_movimientos(request):
 
     return render(request, "empresa/home.html", {'movimientos':movimientos,'articulos':articulos})
 
-
-
-# def tu_ejemplo_de_vista(request):
-
-#    objeto1 = Calendatio.objects.filter(tipo='evento')
-#    objeto2 = Eventos.objects.filter(usuario=request.user)
-
-#    return render(request, "tu/path/calendario.html", {'eventos':objeto1, 'eventos_usuario':objeto2})
