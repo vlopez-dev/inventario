@@ -111,17 +111,19 @@ def filtro_stock(request):
             movimientos = Movimiento.objects.filter(area_destino=area_destino)
             total = movimientos.aggregate(Total=Sum('cantidad_mover'))
             totalfinal=total.get('Total')
+            articulostotales=Articulo.objects.none()
+
+            for i in movimientos:
             
-            articulos = Articulo.objects.filter(desechable=desechable,id_articulo_id=movimientos.id_articulo_id)
-           
-            articulos_list = (chain(articulos, movimientos,total))
+                articulos = Articulo.objects.filter(desechable=desechable,id_articulo=i.id_articulo_id)
+                articulostotales|=articulos
+            print(articulostotales)
+            articulos_list = (chain(articulostotales, movimientos,total))
             return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
 
 
 
 
-<<<<<<< HEAD
-=======
 
 
 
@@ -153,4 +155,3 @@ def filtro_stock(request):
 
 
 
->>>>>>> c7fd75882951ea57fbc76e4a707022f16b111c40
