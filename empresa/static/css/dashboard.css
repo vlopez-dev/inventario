@@ -4,10 +4,11 @@
 root{
   /*colores*/
 
-  --nav:#0060A2;
+  --nav:#0063A6;
+
   --fuentes:#444444;
-  
- 
+  --button:#83B232;
+
 
 }
 
@@ -237,3 +238,16 @@ body {
   .form_login{
     padding: 64px;
   }
+
+  .btn-color{
+    background-color: #83B232;
+    border-color: #83B232;
+  }
+
+
+
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #668a27;
+    border-color: #668a27; /*set the color you want here*/
+}

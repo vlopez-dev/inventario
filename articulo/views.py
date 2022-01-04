@@ -112,14 +112,24 @@ def filtro_stock(request):
             total = movimientos.aggregate(Total=Sum('cantidad_mover'))
             totalfinal=total.get('Total')
             articulostotales=Articulo.objects.none()
+         if not movimientos:
+                return render(request, 'articulo/stock.html',{})
+         else:
+             
 
             for i in movimientos:
-            
+                print("entre al for")
                 articulos = Articulo.objects.filter(desechable=desechable,id_articulo=i.id_articulo_id)
-                articulostotales|=articulos
-            print(articulostotales)
-            articulos_list = (chain(articulostotales, movimientos,total))
-            return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
+                if not articulos:
+                    
+                    return render(request, 'articulo/stock.html',{})
+
+                else:
+                    print("entre por que tiene datos")
+                    articulostotales|=articulos
+                articulos_list = (chain(articulostotales, movimientos,total))
+                
+                return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
 
 
 

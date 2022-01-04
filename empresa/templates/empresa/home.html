@@ -11,16 +11,13 @@
         <div class="title">
             <p>Ultimos Movimientos</p>
             {% for i in movimientos  %}
-            <tbody>
-                <tr>
-                 
-                  <td>{{i.area_origen}}</td>
-                  <td>{{i.cantidad_mover}}</td>
-                </tr>
-            
-            </tbody>
+                <ul>
 
-            
+                    <li>Origen {{i.area_origen}}</li>
+                    <li>Cantidad:{{i.cantidad_mover}}</li>
+
+                </ul>
+               
 
             {% endfor %}
 
@@ -55,12 +52,10 @@
 
             {% for i in articulos  %}
                 <ul>
-                    
                     <li>{{i.nombre_articulo}}</li>
                     <li>{{i.tipo_articulo}}</li>
 
                 </ul>
-                  
 
 
             {% endfor %}
