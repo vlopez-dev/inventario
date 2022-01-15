@@ -3,10 +3,47 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        <div class=" col-md-6">
+        <table class="table">
+            <h6>Ultimos Movimientos</h6>
+            <thead class="table-dark">
+                <td>Origen</td>
+                <td>Cantidad</td>
 
-  
+            </thead>
+            {% for i in movimientos  %}
+            <tbody>
+                <td>{{i.area_origen}}</td>
+                <td>{{i.cantidad_mover}}</td>   
 
-<div class=" col-md-6">
+            </tbody>
+            {% endfor %}
+
+          </table>
+        </div>
+        <div class=" col-md-6">
+            <table class="table">
+                <h6>Ultimos Articulos</h6>
+                <thead class="table-dark">
+                    <td>Origen</td>
+                    <td>Cantidad</td>
+    
+                </thead>
+                {% for i in movimientos  %}
+                <tbody>
+                    <td>{{i.area_origen}}</td>
+                    <td>{{i.cantidad_mover}}</td>   
+    
+                </tbody>
+                {% endfor %}
+    
+              </table>
+            </div>
+
+
+
+
+<!-- <div class=" col-md-6">
     <div class="card-valores"><span class="icon"></span>
         <div class="title">
             <p>Ultimos Movimientos</p>
@@ -64,6 +101,7 @@
         
 
         </div>
+        
         <div class="row">
             <div class="col-4">
                 <div class="header"></div>
@@ -80,7 +118,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 

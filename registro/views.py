@@ -7,6 +7,12 @@ from django.contrib.auth import login
 # Create your views here.
 
 
+
+
+
+
+
+
 def registro_usuario(request):
 	if request.method == "POST":
 		form = RegistroForm(request.POST)
