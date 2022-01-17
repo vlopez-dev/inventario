@@ -108,28 +108,35 @@ def filtro_stock(request):
          if form.is_valid():
             area_destino = form.cleaned_data['area_destino']
             desechable = form.cleaned_data['desechable']
-            movimientos = Movimiento.objects.filter(area_destino=area_destino)
-            total = movimientos.aggregate(Total=Sum('cantidad_mover'))
-            totalfinal=total.get('Total')
+            # movimientos = Movimiento.objects.filter(area_destino=area_destino)
+            # total = movimientos.aggregate(Total=Sum('cantidad_mover'))
+            # totalfinal=total.get('Total')
             articulostotales=Articulo.objects.none()
-         if not movimientos:
-                return render(request, 'articulo/stock.html',{})
-         else:
-             
 
-            for i in movimientos:
-                print("entre al for")
-                articulos = Articulo.objects.filter(desechable=desechable,id_articulo=i.id_articulo_id)
-                if not articulos:
-                    
+
+            articulos = Articulo.objects.filter(desechable=desechable)
+
+            if not articulos:
+
                     return render(request, 'articulo/stock.html',{})
 
-                else:
-                    print("entre por que tiene datos")
-                    articulostotales|=articulos
-                articulos_list = (chain(articulostotales, movimientos,total))
-                
-                return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
+            else:
+
+                for i in articulos:
+
+                    movimientos = Movimiento.objects.filter(area_destino=area_destino,id_articulo_id=i.id_articulo)
+                    if not movimientos:
+                        return render(request, 'articulo/stock.html',{})
+                    else:
+                        
+                        
+                        total = movimientos.aggregate(Total=Sum('cantidad_mover'))
+                        totalfinal=total.get('Total')
+
+                        articulostotales|=articulos
+                        articulos_list = (chain(articulostotales, movimientos,total))
+
+                        return render(request, 'articulo/stock.html',{'articulos_list':articulos_list,'totalfinal':totalfinal})
 
 
 
