@@ -235,6 +235,10 @@ body {
     margin-top: 150px;
   }
 
+
+
+
+
   .form_login{
     padding: 64px;
   }
@@ -244,7 +248,9 @@ body {
     border-color: #83B232;
   }
 
-
+  .container_home{
+    margin-top: 50px;
+  }
 
   .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
     color: #fff;
