@@ -5,16 +5,16 @@
     <div class="row">
         <div class=" col-md-6">
         <table class="table">
-            <h6>Ultimos Movimientos</h6>
+            <h6>Ultimos Articulos</h6>
             <thead class="table-dark">
-                <td>Origen</td>
-                <td>Cantidad</td>
+                <td>Nombre</td>
+                <td>Tipo</td>
 
             </thead>
-            {% for i in movimientos  %}
+            {% for i in articulos  %}
             <tbody>
-                <td>{{i.area_origen}}</td>
-                <td>{{i.cantidad_mover}}</td>   
+                <td>{{i.nombre_articulo}}</td>
+                <td>{{i.tipo_articulo}}</td>   
 
             </tbody>
             {% endfor %}
@@ -23,7 +23,7 @@
         </div>
         <div class=" col-md-6">
             <table class="table">
-                <h6>Ultimos Articulos</h6>
+                <h6>Ultimos Movimientos</h6>
                 <thead class="table-dark">
                     <td>Origen</td>
                     <td>Cantidad</td>
