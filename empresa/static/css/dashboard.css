@@ -278,3 +278,6 @@ body {
 	color: #fff;
 }
 
+.navbar-toggler-space{
+  right: 5rem !important;
+}

@@ -23,4 +23,4 @@ def registro_usuario(request):
 			return redirect("/home")
 		messages.error(request, "No se registro el usuario, informacion no valida.")
 	form = RegistroForm()
-	return render (request=request, template_name="registro/registro.html", context={"RegistroForm":form})
+	return render (request=request, template_name="registration/registro.html", context={"RegistroForm":form})
