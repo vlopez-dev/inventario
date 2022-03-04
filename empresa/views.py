@@ -61,4 +61,4 @@ def ultimos_movimientos(request):
 
         else:
                 print("no es autenticado")
-                return redirect('/registration/login')
+                return redirect('/accounts/login')

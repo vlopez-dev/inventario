@@ -20,6 +20,7 @@ from registration import views as registration_views
 from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path("registro/", registration_views.registro_usuario, name="registro"),
 
     path('', include("empresa.urls")),
@@ -27,13 +28,14 @@ urlpatterns = [
     path('articulo/', include("articulo.urls")),
 
 
-   re_path( r'^accounts/login$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
-   re_path( r'^accounts/logout$',auth_views.LogoutView.as_view(template_name="registration/logout.html"), name="logout"),
-   re_path( r'^accounts/password_change$',auth_views.PasswordResetView.as_view(template_name="registration/resetpass.html"), name="password_change"),
+#    re_path( r'^accounts/login$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
+#    re_path( r'^accounts/logout$',auth_views.LogoutView.as_view(template_name="registration/logout.html"), name="logout"),
+#    re_path( r'^accounts/password_change$',auth_views.PasswordResetView.as_view(template_name="registration/resetpass.html"), name="password_change"),
 
    path('accounts/', include('django.contrib.auth.urls')),
-   path('accounts/login', include('django.contrib.auth.urls')),
-   
+   path('login/', include('django.contrib.auth.urls')),
+   path('logout/', include('django.contrib.auth.urls')),
+
 
    
 
