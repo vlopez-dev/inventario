@@ -1,6 +1,7 @@
 # Inventario
-_Proyecto realizado para el control de stock de una empresa. En el se puede llevar el control de stock por cada oficinas._
+_Proyecto realizado para el control de stock de una empresa. En el se puede llevar el control de stock por cada oficina._
 _Se puede llevar el control de artículos desechables o no desechables_
+_Realizar movimientos desde una oficina  a otra_
 
 
 
@@ -22,8 +23,12 @@ _python3 -m venv_
 _Clonar repositorio_
 _git clone git@github.com:vlopez-dev/inventario.git_
 
-_iniciar entorno virtual e instalar requerimientos_
+_Iniciar entorno virtual e instalar requerimientos_
 _pip install -r requirements.txt_
+
+## Construido con 🛠️
+_Contruido con Django y Bootstrap en los formularios se utilizo crispy form_ 
+
 
 
 
