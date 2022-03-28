@@ -1,17 +1,14 @@
 from django.urls import path
 
 from . import views
+import registration
 
 
 
 urlpatterns = [
     # path("",), #Localhost:p/empresa/agregar
-    path("registro_usuario/",views.registro_usuario,name='registro_usuario'),
+    path("registro/",views.registro_usuario,name='registro'),
 
-    path("logout/",views.logout_view,name='logout'),
-    path("login/",views.login,name='login'),
-    
 
-    
 
 ]

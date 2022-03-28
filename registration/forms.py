@@ -18,9 +18,25 @@ class RegistroForm(UserCreationForm):
 
 
 
+
+
+
 def save(self, commit=True):
     user = super(RegistroForm, self).save(commit=False)
     user.email = self.cleaned_data['email']
     if commit:
         user.save()
     return user
+
+
+
+class LoginForm():
+    user = forms.CharField(required=True)
+
+    class Meta:
+        model=User
+        fields = ['username', 'email', 'password1','password2']
+        labels = {
+                'username':'Nombre de usuario','password1':'Contraseña','password2':'Confirmación contraseña'
+
+                }
