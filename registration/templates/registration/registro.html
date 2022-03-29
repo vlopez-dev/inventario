@@ -12,9 +12,9 @@
 	<form method="POST" class="justify-content-center forms_st shadow-form form_login">
 		{% csrf_token %}
 		{{ RegistroForm|crispy }}
-		<button class="btn btn-primary" type="submit">Register</button>
+		<button class="btn btn-primary" type="submit">Registrar</button>
 	</form>
-	<p class="text-center">Si ya tienes cuenta, <a href="/">ingresa</a>.</p>
+	<p class="text-center">Si ya tienes cuenta, <a href="{% url 'login' %}">ingresa</a>.</p>
 </div>
     
 </div>

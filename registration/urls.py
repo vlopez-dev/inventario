@@ -7,7 +7,7 @@ import registration
 
 urlpatterns = [
     # path("",), #Localhost:p/empresa/agregar
-    path("registro/",views.registro_usuario,name='registro'),
+    path("registro/",views.register_request,name='registro'),
 
 
 

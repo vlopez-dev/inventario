@@ -6,6 +6,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -49,6 +50,7 @@ def delete_empresa(request, id_empresa):
     empresa.delete()
     return redirect('/listar/')
 
+@login_required
 
 def ultimos_movimientos(request):
         if request.user.is_authenticated:

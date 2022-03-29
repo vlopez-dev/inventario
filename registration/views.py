@@ -19,17 +19,25 @@ from registration import forms
 
 
 
-def registro_usuario(request):
+
+def register_request(request):
 	if request.method == "POST":
 		form = RegistroForm(request.POST)
 		if form.is_valid():
+			print("Estoy en la validacion del form")
 			user = form.save()
 			login(request, user)
-			messages.success(request, "Registro exitoso." )
+			messages.success(request, "Registration successful." )
 			return redirect("/home")
-		messages.error(request, "No se registro el usuario, informacion no valida.")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = RegistroForm()
 	return render (request=request, template_name="registration/registro.html", context={"RegistroForm":form})
+
+
+
+
+
+
 
 
 

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)
+    print("Estoy en el registro form")
 
     class Meta:
         model=User
@@ -14,19 +15,16 @@ class RegistroForm(UserCreationForm):
                 'username':'Nombre de usuario','password1':'Contraseña','password2':'Confirmación contraseña'
 
                 }
-
-
-
-
-
-
-
 def save(self, commit=True):
-    user = super(RegistroForm, self).save(commit=False)
-    user.email = self.cleaned_data['email']
-    if commit:
-        user.save()
-    return user
+        print("Estoy en el save")
+        user = super(NewUserForm, self).save(commit=False)
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+        return user
+
+
+
 
 
 
