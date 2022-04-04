@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.views.generic import View
+from django.contrib.auth.forms import AuthenticationForm #add this
 
 from registration import forms
 
@@ -47,8 +48,10 @@ def registro_usuario(request):
 
 
 class LoginPageView(View):
+    print("Entre por login")
     template_name = 'registration/login.html'
-    form_class = forms.LoginForm
+    form_class = forms.CustomAuthenticationForm
+    
     
 
 def logout_view(request):
