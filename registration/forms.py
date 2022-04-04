@@ -15,13 +15,13 @@ class RegistroForm(UserCreationForm):
                 'username':'Nombre de usuario','password1':'Contraseña','password2':'Confirmación contraseña'
 
                 }
-def save(self, commit=True):
-        print("Estoy en el save")
-        user = super(NewUserForm, self).save(commit=False)
-        user.email = self.cleaned_data['email']
-        if commit:
-            user.save()
-        return user
+    def save(self, commit=True):
+            print("Estoy en el save")
+            user = super(NewUserForm, self).save(commit=False)
+            user.email = self.cleaned_data['email']
+            if commit:
+                user.save()
+            return user
 
 
 

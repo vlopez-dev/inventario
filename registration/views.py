@@ -20,10 +20,13 @@ from registration import forms
 
 
 
-def register_request(request):
+def registro_usuario(request):
 	if request.method == "POST":
 		form = RegistroForm(request.POST)
+		print(" estoy por entrar a la validacion")
 		if form.is_valid():
+			form.cleaned_data.get('username')
+
 			print("Estoy en la validacion del form")
 			user = form.save()
 			login(request, user)
