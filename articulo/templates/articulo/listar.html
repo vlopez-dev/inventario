@@ -26,7 +26,7 @@
               <td>{{i.nombre_articulo}}</td>
   
                 <td>{{i.tipo_articulo}}</td>
-
+                
                 
                   <td>
                     <a href="{% url 'articulo_update' i.id_articulo %}" class="btn text-secondary px-0">
@@ -38,6 +38,9 @@
                         <button type="submit" class="btn">
                             <i class="far fa-trash-alt fa-sm text-danger float-right"></i>
                         </button>
+                        <a href="{% url 'articulo_view' i.id_articulo  %}">
+                            <img src="https://img.icons8.com/small/16/000000/binoculars.png"/>
+                        </a>
                     </form>
                 </td>
             </tr>

@@ -8,6 +8,8 @@ from django.db.models import Sum
 from django.db.models import Avg
 from django.db.models import Q
 from itertools import chain
+from django.shortcuts import get_object_or_404
+
 import json
 
 
@@ -102,37 +104,21 @@ def filtro_stock(request):
      if request.method=="GET":
         form =FiltroStockForm()
         return render(request,'articulo/form_stock.html',{'form':form})
-
      else:
          form= FiltroStockForm(request.POST)
          if form.is_valid():
             area_destino = form.cleaned_data['area_destino']
             desechable = form.cleaned_data['desechable']
             articulos = Articulo.objects.filter(desechable=desechable)
-
-            # movimientos = Movimiento.objects.filter(area_destino=area_destino)
-            # total = movimientos.aggregate(Total=Sum('cantidad_mover'))
-            # totalfinal=total.get('Total')
             articulostotales=Articulo.objects.none()
-
-
-
             if not articulos:
-
                     return render(request, 'articulo/stock.html',{})
-
             else:
-
                 for i in articulos:
-                    
                     movimientos = Movimiento.objects.filter(area_destino=area_destino,id_articulo_id=i.id_articulo)
-                    
-                    
                     if not movimientos:
                         return render(request, 'articulo/stock.html',{})
                     else:
-                        
-                        
                         total = movimientos.aggregate(Total=Sum('cantidad_mover'))
                         totalfinal=total.get('Total')
 
@@ -145,4 +131,7 @@ def filtro_stock(request):
 
 
 
-
+def articulo_view(request,id_articulo):
+    print("Estoy en la funcion articulo view")
+    articulo = get_object_or_404(Articulo,pk=id_articulo)
+    return render(request,"articulo/view_art.html",{"articulo",articulo} )

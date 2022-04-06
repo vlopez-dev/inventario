@@ -22,7 +22,7 @@ class Articulo(models.Model):
     nombre_articulo = models.CharField(max_length=30)
     descripcion_articulo = models.CharField(max_length=200)
     tipo_articulo = models.CharField(max_length=30,choices=ARTICULOS_TIPO,default='electronico')
-    imagen_articulo = models.ImageField(upload_to='%articulo/%imagenes',blank=True)
+    image = models.ImageField(blank=True, upload_to='media/')
     desechable = models.BooleanField(null=True,blank=True)
     
 
