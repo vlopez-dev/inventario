@@ -22,7 +22,6 @@ def articulo_agregar(request,id_articulo=0):
             form = ArticuloForm()
         else:
             articulo = Articulo.objects.get(pk=id_articulo)
-            #invernadero = Invernadero.objects.filter(pk=id_invernadero).first()
 
             form = ArticuloForm(instance=articulo)
         return render(request, 'articulo/articulo_agregar.html', {'form': form})
@@ -131,7 +130,3 @@ def filtro_stock(request):
 
 
 
-def articulo_view(request,id_articulo):
-    print("Estoy en la funcion articulo view")
-    articulo = get_object_or_404(Articulo,pk=id_articulo)
-    return render(request,"articulo/view_art.html",{"articulo",articulo} )

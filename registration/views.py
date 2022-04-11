@@ -50,7 +50,7 @@ def registro_usuario(request):
 class LoginPageView(View):
     print("Entre por login")
     template_name = 'registration/login.html'
-    form_class = forms.CustomAuthenticationForm
+    form_class = forms.UserLoginForm
     
     
 

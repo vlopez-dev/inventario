@@ -3,8 +3,7 @@ from django.db.models import fields
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import AuthenticationForm #add this
-
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 class RegistroForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -26,18 +25,16 @@ class RegistroForm(UserCreationForm):
             return user
 
 
+class UserLoginForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(UserLoginForm, self).__init__(*args, **kwargs)
 
-
-
-
-class CustomAuthenticationForm(AuthenticationForm):
-     class Meta:
-        model = User
-        fields = '__all__'
-       
-        
-     def __init__(self, *args, **kwargs):
-        super(AuthenticationForm, self).__init__(*args, **kwargs)
-     label={
-            'Username':'Usuario'
+    username = UsernameField(widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': '', 'id': 'hello'}))
+    password = forms.CharField(widget=forms.PasswordInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': '',
+            'id': 'hi',
         }
+))
