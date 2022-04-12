@@ -16,11 +16,11 @@
             <form action=""method="POST"autocomplete="off"class="justify-content-center forms_st shadow-form form_login">
               <div class="mb-4">
                 {% csrf_token %} 
-                {{UserLoginForm|crispy }}
+                
 
-                {% comment %} {{ UserLoginForm.username|as_crispy_field }} {% endcomment %}
+                {{ form.username|as_crispy_field }}
 
-                {% comment %} {{ UserLoginForm.password|as_crispy_field }} {% endcomment %}
+                {{ form.password|as_crispy_field }}
 
               
 
