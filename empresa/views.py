@@ -4,12 +4,10 @@ from django.db import models
 from .models import Empresa
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
-
-# Create your views here.
+@login_required# Create your views here.
 def home(request):
     return render(request, 'empresa/home.html')
 
@@ -51,7 +49,6 @@ def delete_empresa(request, id_empresa):
     return redirect('/listar/')
 
 @login_required
-
 def ultimos_movimientos(request):
         if request.user.is_authenticated:
             print("Es autenticado")

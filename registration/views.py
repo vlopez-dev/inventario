@@ -44,20 +44,3 @@ def registro_usuario(request):
 
 
 
-
-
-
-class LoginPageView(View):
-    print("Entre por login")
-    template_name = 'registration/login.html'
-    form_class = forms.UserLoginForm
-    
-    
-
-def logout_view(request):
-    logout(request)
-    print("entre funcion logout")
-    return redirect('/accounts/logout')
-
-
-
