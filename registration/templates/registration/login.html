@@ -1,4 +1,4 @@
-{% extends 'registro/base.html' %} 
+{% extends 'registration/base.html' %} 
 {% load crispy_forms_tags %}
 {% block title %}Login{% endblock %}
 
@@ -16,7 +16,10 @@
             <form action=""method="POST"autocomplete="off"class="justify-content-center forms_st shadow-form form_login">
               <div class="mb-4">
                 {% csrf_token %} 
+                
+
                 {{ form.username|as_crispy_field }}
+
                 {{ form.password|as_crispy_field }}
 
               
@@ -29,7 +32,7 @@
     
 </div>
 </div>
-<p class="text-center">Si no tienes una cuenta, <a href="/registro">registrate</a>.</p>
+<p class="text-center">Si no tienes una cuenta, <a href="{% url 'registro' %} ">registrate</a>.</p>
 
 
 

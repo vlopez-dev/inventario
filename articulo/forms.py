@@ -26,7 +26,7 @@ class MovimientoForm(forms.ModelForm):
         fields = '__all__'
 
         labels = {
-                    'id_articulo':'Articulo','area_origen':'Origen','area_destino':'Destino','cantidad_mover':'Cantidad'
+                    'id_articulo':'Artículo','area_origen':'Origen','area_destino':'Destino','cantidad_mover':'Cantidad'
                 }
 
 class FiltroStockForm(forms.ModelForm):
@@ -37,5 +37,5 @@ class FiltroStockForm(forms.ModelForm):
         model = Movimiento
         fields = ['area_destino','desechable']
         labels = {
-                    'area_destino':'Area'
+                    'area_destino':'Área'
                 }
