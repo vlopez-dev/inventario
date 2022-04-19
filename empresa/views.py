@@ -7,9 +7,15 @@ from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 
-@login_required# Create your views here.
+
+
+
 def home(request):
-    return render(request, 'empresa/home.html')
+    if not request.user.is_authenticated:
+            return redirect('%s?next=%s' % (settings.LOGIN_URL, request.path))
+    else:
+
+            return render(request, 'empresa/home.html')
 
 
 
@@ -48,16 +54,18 @@ def delete_empresa(request, id_empresa):
     empresa.delete()
     return redirect('/listar/')
 
-@login_required
+
+
 def ultimos_movimientos(request):
-        if request.user.is_authenticated:
-            print("Es autenticado")
+
+        if not request.user.is_authenticated:
+            print(request.user.is_authenticated)
+            print("no es autenticado")
+            return redirect('/')
+        else:
             movimientos = Movimiento.objects.all()
             articulos = Articulo.objects.all()
+            print("es autenticado")
 
             return render(request, "empresa/home.html", {'movimientos':movimientos,'articulos':articulos})
 
-
-        else:
-                print("no es autenticado")
-                return redirect('/accounts/login')

@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include,re_path
 from django.contrib.auth import views as auth_views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 
@@ -26,7 +27,11 @@ urlpatterns = [
     path('articulo/', include("articulo.urls")),
     path('registration/', include('registration.urls')),
 
-    path('accounts/', include('django.contrib.auth.urls')),
+    re_path( r'^$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
+    re_path( r'^logout/$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="logout"),
+    
+
+
 
 
 
