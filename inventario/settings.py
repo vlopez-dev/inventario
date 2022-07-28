@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'registration',
     'crispy_forms',
     'django_extensions',
+    'sweetify'
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -144,3 +146,4 @@ LOGOUT_REDIRECT_URL = 'logout/'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
