@@ -1,16 +1,12 @@
-from django.urls import path
-
-from . import views
-from django.views.generic.base import TemplateView # new
+from pathlib import Path
+from django.urls import path,include
+from .views import SignUpView
 
 
 
 
 urlpatterns = [
-    # path("",), #Localhost:p/empresa/agregar
-    path("registro/",views.registro_usuario,name='registro'),
-    
-
+   path('signup/', SignUpView.as_view(), name='signup')
 
 
 ]
