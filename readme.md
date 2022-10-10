@@ -6,7 +6,7 @@ _Realizar movimientos desde una oficina  a otra_
 
 
 ### Pre-requisitos 📋
-_Requisito necesario para la instalacion:_
+_Requisito necesario para la instalación:_
 _Crear un entorno aislado con virtualenv o cualquier otro de su tipo_
 
 _Ejemplo_
