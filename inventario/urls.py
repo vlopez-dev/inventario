@@ -24,14 +24,9 @@ urlpatterns = [
     path('', include("empresa.urls")),
     path('area/', include("area.urls")),
     path('articulo/', include("articulo.urls")),
-    path('registration/', include('registration.urls')),
-
-    re_path( r'^$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="login"),
-    re_path( r'^logout/$',auth_views.LoginView.as_view(template_name="registration/login.html"), name="logout"),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("registration.urls")),
     
-
-
-
 
 
 

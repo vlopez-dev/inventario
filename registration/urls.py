@@ -1,16 +1,10 @@
-from django.urls import path
+from pathlib import Path
+from django.urls import path, include
 
-from . import views
-from django.views.generic.base import TemplateView # new
-
-
+from .views import SignUpView, PasswordResetView
 
 
 urlpatterns = [
-    # path("",), #Localhost:p/empresa/agregar
-    path("registro/",views.registro_usuario,name='registro'),
-    
-
-
-
+    path("signup/", SignUpView.as_view(), name="signup"),
+    path("password_reset/", PasswordResetView.as_view(), name="password_reset"),
 ]
