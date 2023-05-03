@@ -10,6 +10,8 @@ ARTICULOS_TIPO = [
             ('Electronico', 'Electrónico'),
 
             ('Mobiliario', 'Mobiliario'),
+            ('Toner', 'Toner'),
+
 
         ]
 

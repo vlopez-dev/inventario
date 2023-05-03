@@ -1,38 +1,51 @@
-{% extends 'registration/base.html' %}
+{% extends 'registration/base-signup.html' %}
 {% load bootstrap5 %}
 
 {% load crispy_forms_tags %}
-{% block title %}Iniciar sesión{% endblock %}
+{{form.mobile|as_crispy_field}}
 {% block content %}
-    <section class="sec min-vh-100">
-    <div class="container">
-        <div class="row text-white ">
-            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                <form  action="" method="post" class="justify-content-center signup_spacing">{% csrf_token %}
-                    <h3 class="mb-4">Registro</h3>
-                    <div class="row">
-                    {{ form.username|as_crispy_field }}
-                    {{form.email|as_crispy_field }}
 
-                    {{form.password1|as_crispy_field }}
-                    {{form.password2|as_crispy_field }}
-                    </div>
-                    <p>
-                        <input type="submit" value="Confirmar" class="btn btn-primary btn-block">
-                    </p>
+    
+  
+    <form  action="" method="POST" autocomplete="off"  class="user">
+        {% csrf_token %} 
 
-                </form>
-            </div>
+        <div class="form-group">
+            {{ form.username|as_crispy_field }}
+
         </div>
-    </div>
-</section>
+
+       
+        <div class="form-group">
+            {{ form.email|as_crispy_field }}
+
+        </div>
+
+        <div class="form-group">
+            {{ form.password1|as_crispy_field }}
+
+        </div>
+        <div class="form-group">
+            {{ form.password2|as_crispy_field }}
+
+        </div>
+       
+
+
+      
+        <hr>
+        <button type="submit"class="btn btn-primary btn-user btn-block">Crear</button>
+
+       
+    </form>
 
 
 
-</main>
 
 
 
 
 
-{% endblock %}
+
+
+    {% endblock %}

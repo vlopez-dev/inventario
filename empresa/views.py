@@ -6,6 +6,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+import sweetify
+
 
 
 
@@ -38,10 +40,10 @@ def empresa_agregar(request, id_empresa=0):
             form = EmpresaForm(request.POST, instance=empresa)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.INFO,
-                                 'Agregado correctamente!.')
+            sweetify.success(request, 'Exito', text='Agregado Correctamente', persistent='Aceptar')
 
-        return redirect('/listar/')
+
+        return redirect('/agregar/')
 
 
 def listar_empresa(request):

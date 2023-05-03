@@ -1,27 +1,44 @@
-{% extends 'registration/base.html' %}
-{% load bootstrap5 %}
+            {% extends 'registration/base-login.html' %}
+            {% load bootstrap5 %}
 
-{% load crispy_forms_tags %}
-{{form.mobile|as_crispy_field}}{% block title %}Iniciar sesión{% endblock %}
-{% block content %}
+            {% load crispy_forms_tags %}
+            {{form.mobile|as_crispy_field}}
+            {% block content %}
 
 
-<section class="sec min-vh-100">
-<div class="container">
-  <div class="row text-white">
+            <div class="col-md-9 mx-auto mb-5">
+                {% if 'register' in request.GET %}
+                    <p style="color:green"> 
+                        Usuario registrado correctamente.
+                    </p>
+                {% endif%}
+            </div>
+                <form  action="" method="POST" autocomplete="off"  class="user">
+                    {% csrf_token %} 
 
-    <div class=" col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-            <h5 class="titulos"></h5>
-            <form action=""method="POST"autocomplete="off" class="justify-content-center form_spacing">
-              <div class="mb-4">
-                {% csrf_token %} 
-                
+                    <div class="form-group">
+                        {{ form.username|as_crispy_field }}
 
-                {{ form.username|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.password|as_crispy_field }}
 
-                {{ form.password|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox small">
+                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                            <label class="custom-control-label" for="customCheck">Recordarme
+                                </label>
+                        </div>
+                    </div>
+                   
+                    <hr>
+                    <button type="submit"class="btn btn-primary btn-user btn-block">Login</button>
 
-              
+                   
+                </form>
+
+
 
               </div>
               <button type="submit"class="btn btn-primary btnsize">Login</button>
@@ -47,4 +64,8 @@
 
 
 
-{% endblock %}
+
+
+
+
+                {% endblock %}
